@@ -8,24 +8,48 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+     Asks user to specify a city, month, and day to analyze.
 
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    """
-    print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-
+     Returns:
+         (str) city - name of the city to analyze
+         (str) month - name of the month to filter by, or "all" to apply no month filter
+         (str) day - name of the day of week to filter by, or "all" to apply no day filter
+     """
+    print('\nHello! Let\'s explore some US bikeshare data!\n')
+    while True:
+        city_input = str(input('Please enter the name of the city\n\n1-Chicago\n2-New york city\n3-Washington\n'))
+        city_list = ['chicago', 'new york city', 'washington']
+        if city_input.lower() in city_list:
+            city = city_input.lower()
+            print('Let\'s See {}!! '.format(city).capitalize())
+            break
+        else:
+            print("\nplease enter a valid city name !!\n")
 
     # get user input for month (all, january, february, ... , june)
-
+    while True:
+        month_input = str(input(
+            '\nPlease enter the month\n0-All            1-January\n2-Februaryn      3-March\n4-April          5-May\n6-June\n '))
+        month_list = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
+        if month_input.lower() in month_list:
+            month = month_input.lower()
+            print('You chose ', month.capitalize())
+            break
+        else:
+            print('\nplease enter a valid number!!\n')
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-
-
-    print('-'*40)
+    while True:
+        day_input = str(input(
+            '\nPlease choose the day\n0-All           1-Sunday\n2-Monday        3-Tuesday\n4-Wednesday     5-Thursday\n6-Friday        7-Saturday\n '))
+        day_list = ['all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+        if day_input.lower() in day_list:
+            day = day_input.lower()
+            print('You chose ', day.capitalize())
+            break
+        else:
+            print('\nplease enter a valid number!!\n')
+    print('-' * 40)
     return city, month, day
 
 
